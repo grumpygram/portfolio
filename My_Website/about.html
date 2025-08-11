@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Graeme Peters | About</title>
+    <!--Tab Icon-->
+    <link rel="icon" href="/Resources/Images/IconBorder.png" type="image/x-icon">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--My stylesheet-->
+    <link rel="stylesheet" href="portfolio.css">
+
+    <!-- Library script(s) -->
+    <script src="js/libraries/p5.min.js"></script>
+
+</head>
+<!-- -->
+
+<body>
+    <!--HEADER-->
+    <header id="site-header">
+        <div class="left">
+            <a href="index.html">GRAEME PETERS</a>
+        </div>
+        <nav class="right">
+            <a href="about.html" class="active-page">About</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <section class="spacing">
+    </section>
+
+    <!-- 
+    <section class="about-1">
+        <div id="a1">
+            <h1>About Me</h1>
+            <p>Ever since I was just a wee lad, I've loved working with my hands.</p>
+            <p>I am a Graphic and Industrial Designer with a Bachelor's degree from Concordia University. 
+            I enjoy activities that let me spend time outdoors doing work with my hands. 
+            I strive to always bring a positive, open-minded attitude to any and all projects 
+            that I participate in. In my personal life, I like to practice a variety of sports 
+            and organise multi-day nature outings. Professionally, I like to be stimulated by 
+            what I do and enjoy learning about new topics to come up with solutions to problems.</p>
+        </div>
+        <div id="a1-img">
+            <img src="resources/photos/welding.jpg" alt="welding"></img>
+        </div>
+    </section>
+    -->
+
+    <div class="page-wrapper">
+        <section class="a1">
+            <div class="a1-text">
+            <h1>About Me</h1>
+            <p>
+                I’m Graeme — a designer, builder, and creative thinker. I love learning and being challenged by new topics. I am happiest when I'm finding practical solutions to an issue.
+            </p>
+            </div>
+            <div class="a1-img-stack">
+            <img src="resources/photos/General/about1.jpg" class="a1-img active" alt="First image" />
+            <img src="resources/photos/General/about2.jpg" class="a1-img" alt="Second image" />
+            <img src="resources/photos/General/about3.jpg" class="a1-img" alt="Third image" />
+            </div>
+        </section>
+
+        <section class="a1-buffer"></section>
+        <section class="a2">
+            <div class="a2-text">
+            <h2>My Background</h2>
+            <p>Growing up in Toronto and Montréal, I was exposed to art in a wide variety of mediums from a very young age. My prized posession as a kid was an easel that my parents gave me and they heartened me by displaying every dragon drawing I ever did.</p>
+            <p>In high school, I was enrolled in a visual arts intensive program for 3 years but realised that at the time, I wasn't a fan of the strict format of the classes. As a result, I stopped making art and shifted focus towards mechanics. At 16, I got a job in a bike shop, where I worked for all of college, where I studied Liberal Arts.</p> 
+            <p>After college, I chose to study Design at Concordia University. I made this decision because I see design as a confluence of art, practicality, and philosophy. I had also been watching a lot of Mythbusters reruns and loved the idea of working on such a wide variety of disciplines.</p>
+            <p>In university, my love for design was confirmed and I learned to make sleek, practical objects. Now, I want to continue to bring that passion to my professional life.</p>
+            </div>
+
+            <h2 style="margin-top: 60px;">How I spend my time</h2>
+        </section>
+
+
+        <section class="a3-gallery-scroll">
+            <div class="a3-scroll-container">
+            <section class="a3-gallery">
+            <div class="description-box">
+                <h2 id="desc-title">Swimming</h2>
+                <p id="desc-text">I grew up swimming and love to get out for some laps in the ocean or the pool.</p>
+            </div>
+
+            <div class="image-box">
+                <img src="resources/photos/General/swimming.jpg" class="a3-gallery" alt="Gallery Image">
+            </div>
+
+            <div class="description-box">
+                <h2 id="desc-title">Hiking</h2>
+                <p id="desc-text">When I have free time, I love to get outdoors and go somewhere out of the way.</p>
+            </div>
+
+            <div class="image-box">
+                <img src="resources/photos/General/sliding.jpg" class="a3-gallery" alt="Gallery Image">
+            </div>
+
+            <div class="description-box">
+                <h2 id="desc-title">Cycling</h2>
+                <p id="desc-text">Rain or shine (or snow), my preferred way to get around the city is on two wheels.</p>
+            </div>
+
+            <div class="image-box">
+                <img src="resources/photos/General/biking.JPG" class="a3-gallery" alt="Gallery Image">
+            </div>
+                </section>
+            </div>
+        </section>
+    </div>
+
+<footer class="site-footer">
+  <div class="footer-content">
+    &copy; 2025 Graeme Peters. All rights reserved.
+    <nav class="footer-nav">
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="social-icons">
+        <a href="https://www.linkedin.com/in/graeme-peters-428250339/" target="_blank">LinkedIn</a>
+        <a href="https://www.instagram.com/graeme_rp/" target="_blank">Instagram</a>
+    </div>
+  </div>
+</footer>
+
+    <!--JAVASCRIPT-->
+    <script>
+        // HEADER SCROLL
+        let lastScroll = 0;
+        const header = document.getElementById('site-header');
+
+        // IMAGE SCROLL
+        const landingImages = document.querySelectorAll('.a1-img');
+        const triggerOffset = document.querySelector('.a1').offsetTop;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+
+        // Header scroll logic
+        if (currentScroll > lastScroll) {
+            header.style.top = '-100px'; // hides header
+        } else {
+            header.style.top = '0'; // shows header
+        }
+        lastScroll = currentScroll;
+
+        // Image fade logic
+        function activateImage(index) {
+            landingImages.forEach((img, i) => {
+            img.style.opacity = i === index ? '1' : '0';
+            img.style.transition = 'opacity 0.8s ease';
+        });
+        }
+
+        if (currentScroll >= triggerOffset && currentScroll < triggerOffset + 50) {
+        activateImage(0);
+        } else if (currentScroll >= triggerOffset + 100 && currentScroll < triggerOffset + 630) {
+        activateImage(1);
+        } else if (currentScroll >= triggerOffset + 430 && currentScroll < triggerOffset + 810) {
+        activateImage(2);
+        }
+
+        });
+    </script>
+
+
+
+</body>
+</html>

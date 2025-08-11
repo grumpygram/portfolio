@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Graeme Peters | Designer</title>
+    <!--Tab Icon-->
+    <link rel="icon" href="/Resources/Images/IconBorder.png" type="image/x-icon">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--My stylesheet-->
+    <link rel="stylesheet" href="portfolio.css">
+
+    <!-- Library script(s) -->
+    <script src="js/libraries/p5.min.js"></script>
+
+    <!--My script
+    <script src="js/logo.js"></script>-->
+
+</head>
+<!-- -->
+
+<body>
+    <!--HEADER-->
+    <header id="site-header">
+        <div class="left">
+            <a href="index.html">GRAEME PETERS</a>
+        </div>
+        <nav class="right">
+            <a href="about.html">About</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <!--FIRST PIC + NAME-->
+    <section id="landing">
+        <img id="overlay-img" src="resources/photos/General/transparent_name.png" alt="graeme peters">
+    </section>
+
+    <!--BRIEF ABOUT ME-->
+    <section id="brief-about">
+        <img id="headshot" src="resources/photos/General/portrait.jpg" alt="headshot">
+        <div id="about-text">
+                <h2>Hello, my name is Graeme</h2>
+                <div class="content-text">
+                <h3>I do Industrial Design</h3>
+                <h3>I do Graphic Design</h3>
+                </div>
+                <a class="more-about-button" href="about.html">Read More</a>
+        </div>
+    </section>
+    
+
+    <section id="mid-image">
+        <img src="resources/photos/General/mid-image.jpg" alt="mid-image"></div>
+        <div id="mid-text">Selected Work</div>
+    </section>
+    <!--SELECTED WORK-->
+    <section id="selected-work">
+            <div class="gallery-track">
+            <!--PROJECT 1-->
+            <a href="projects/sesameLamp.html" class="gallery-card">
+                <div class="gallery-image">
+                    <img src="resources/photos/Sesame-lamp/thumbnail.jpg" alt="Sesame Lamp">
+                </div>
+                <div class="gallery-title">Sesame Lamp</div>
+                <div class="gallery-description">
+                    A simple lamp housing a secret mechanism inside it. Smooth and refined.
+                </div>
+            </a>
+            <!--PROJECT 2-->
+            <a href="projects/dayPak.html" class="gallery-card">
+                <div class="gallery-image">
+                    <img src="resources/photos/Daypak/thumbnail.jpg" alt="Sesame Lamp">
+                </div>
+                <div class="gallery-title">DayPak</div>
+                <div class="gallery-description">
+                    A bag specifically made to serve treeplanters and their needs. Durable and purpose-built.
+                </div>
+            </a>
+            <!--PROJECT 3-->
+            <a href="projects/milkweedJacket.html" class="gallery-card">
+                <div class="gallery-image">
+                    <img src="resources/photos/Milkweed-jacket/thumbnail.jpg" alt="Sesame Lamp">
+                </div>
+                <div class="gallery-title">Milkweed Jacket</div>
+                <div class="gallery-description">
+                    A jacket made with Montréal's unique environmental landscape in mind. Delicate and refined.
+                </div>
+            </a>
+
+            <!-- Sixth = “See more” -->
+            <a href="projects.html" class="more-work-card">
+            <div class="see-more-image"></div>
+            <div class="gallery-title">See More →</div>
+            <div class="gallery-description">
+                Explore the full archive of past projects organized by year.
+            </div>
+            </a>
+    </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-content">
+    &copy; 2025 Graeme Peters. All rights reserved.
+    <nav class="footer-nav">
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="social-icons">
+        <a href="https://www.linkedin.com/in/graeme-peters-428250339/" target="_blank">LinkedIn</a>
+        <a href="https://www.instagram.com/graeme_rp/" target="_blank">Instagram</a>
+    </div>
+  </div>
+</footer>
+
+
+    <!--JAVASCRIPT-->
+    <script>
+        let lastScroll = 0;
+        const header = document.getElementById('site-header');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll > lastScroll) {
+            header.style.top = '-100px'; // hides header
+            } else {
+            header.style.top = '0'; // shows header
+            }
+            lastScroll = currentScroll;
+        });
+
+
+        const nextBtn = document.querySelector('.next-button');
+        const track = document.querySelector('.gallery-track');
+
+        nextBtn.addEventListener('click', () => {
+            track.scrollBy({ left: track.clientWidth, behavior: 'smooth' });
+        });
+
+    </script>
+
+</body>
+</html>

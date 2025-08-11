@@ -1,0 +1,203 @@
+  <!DOCTYPE html>
+
+<html>
+<head>
+    <title>Graeme Peters | Sesame Lamp</title>
+    <!--Tab Icon-->
+    <link rel="icon" href="/Resources/Images/IconBorder.png" type="image/x-icon">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--My stylesheet-->
+    <link rel="stylesheet" href="../portfolio.css">
+
+    <!-- Library script(s) -->
+    <script src="../js/libraries/p5.min.js"></script>
+
+    <!--My script-->
+    <!--<script src="../js/object.js"></script>-->
+
+</head>
+<!-- -->
+
+<body>
+    <!--HEADER-->
+    <header id="site-header">
+        <div class="left">
+            <a href="../index.html">GRAEME PETERS</a>
+        </div>
+        <nav class="right">
+            <a href="../about.html">About</a>
+            <a href="../projects.html" class="active-page">Projects</a>
+            <a href="../contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <!--HERO PIC-->
+    <section class="hero-section">
+        <img src="../resources/photos/milkweed-jacket.jpg" alt="Hero image of portfolio projects" />
+    </section>
+
+    <!--TITLE-->
+    <section class="page-title">
+        <h1>Title</h1>
+    </section>
+    <section class="spacing">
+    </section>
+
+    <!--CONTAINER FOR LAYOUT-->
+    <section class="page-layout">
+        <!--INDEX SECTION-->
+        <section class="section-index">
+        <ul>
+            <li data-target="overview">Overview</li>
+            <li data-target="prompt">Prompt</li>
+            <li data-target="design-process">Design Process</li>
+            <li data-target="prototyping">Prototyping</li>
+            <li data-target="making">Making</li>
+            <li data-target="final">the Final Product</li>
+        </ul>
+        </section>
+
+        <!--PROJECT-->
+        <section class="project-section">
+        <!--Overview-->
+        <div id="overview">
+            <div class="project-info">
+                <div class="project-label">Date:</div>
+                <div class="project-content">Blank</div>
+            </div>
+            <div class="project-info">
+                <div class="project-label">Materials:</div>
+                <div class="project-content">Blank</div>
+            </div>
+            <div class="project-info">
+                <div class="project-label">Techniques:</div>
+                <div class="project-content">Blank</div>
+            </div>
+            <div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc arcu est, maximus sagittis dolor sit amet, porttitor imperdiet nunc. In ac magna vitae risus maximus auctor. Integer laoreet arcu eget nisl tristique, dictum tristique ex vulputate. Pellentesque iaculis nunc metus. 
+                </p>
+            </div>
+        </div>
+        <!--Prompt-->
+        <div id="prompt">
+            <h2>Prompt</h2>
+            <hr class="section-line" />
+                <p>Prompt
+                </p>
+        </div>
+        <!--Design Process-->
+        <div id="design-process">
+            <h2>Design Process</h2>
+            <hr class="section-line" />
+                <p>Design Process
+                </p>
+                <div class="image-gallery">
+                    <img src="../resources/photos/milkweed-jacket.jpg" alt="Making 1" class="image-landscape">
+                    <img src="../resources/photos/woodshop.jpg" alt="Making 1" class="image-portrait">
+                </div>
+        </div>
+        <!--Prototyping-->
+        <div id="prototyping">
+            <h2>Prototyping</h2>
+            <hr class="section-line" />
+                <p>Prototyping
+                </p>
+                <div class="image-gallery">
+                    <img src="../resources/photos/milkweed-jacket.jpg" alt="Making 1" class="image-landscape">
+                    <img src="../resources/photos/woodshop.jpg" alt="Making 1" class="image-portrait">
+                </div>
+        </div>
+        <!--making-->
+        <div id="making">
+            <h2>Making</h2>
+            <hr class="section-line" />
+            <p>Making
+            </p>
+                <div class="image-gallery">
+                    <img src="../resources/photos/Sesame-lamp/DP1.jpg" alt="Making 1" class="image-portrait">
+                    <img src="../resources/photos/milkweed-jacket.jpg" alt="Making 1" class="image-landscape">
+                </div>
+        </div>
+        <!--Final-->
+        <div id="final">
+            <h2>the Final Product</h2>
+            <hr class="section-line" />
+                <p>the Final Product
+                </p>
+                <div class="image-gallery">
+                    <img src="../resources/photos/milkweed-jacket.jpg" alt="Making 1" class="image-landscape">
+                    <img src="../resources/photos/woodshop.jpg" alt="Making 1" class="image-portrait">
+                </div>
+        </div>
+        </section>
+    </section>
+
+    <footer class="site-footer">
+    <div class="footer-content">
+        &copy; 2025 Graeme Peters. All rights reserved.
+        <nav class="footer-nav">
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+        </nav>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/graeme-peters-428250339/" target="_blank">LinkedIn</a>
+            <a href="https://www.instagram.com/graeme_rp/" target="_blank">Instagram</a>
+        </div>
+    </div>
+    </footer>
+
+
+    <!--JAVASCRIPT-->
+    <script>
+        //HEADER SCROLL
+        let lastScroll = 0;
+        const header = document.getElementById('site-header');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll > lastScroll) {
+            header.style.top = '-100px'; // hides header
+            } else {
+            header.style.top = '0'; // shows header
+            }
+            lastScroll = currentScroll;
+        });
+
+        //INDEX HIGHLIGHTING
+        const targets = document.querySelectorAll('.project-section > div');
+        const navItems = document.querySelectorAll('.section-index li');
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                const currentId = entry.target.id;
+                navItems.forEach((item) => {
+                    item.classList.remove('active');
+                    if (item.dataset.target === currentId) {
+                    item.classList.add('active');
+                    }
+                });
+                }
+            });
+            },
+            {
+            threshold: 0.8, // Adjust this to fine-tune when the section is considered "active"
+            }
+        );
+
+        targets.forEach((target) => observer.observe(target));
+    </script>
+
+    <!--
+    <div class="object">
+        <div id="object-holder">
+        </div>
+    </div>
+    -->
+
+</body>
+</html>

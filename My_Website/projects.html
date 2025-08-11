@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Graeme Peters | Projects</title>
+    <!--Tab Icon-->
+    <link rel="icon" href="/Resources/Images/IconBorder.png" type="image/x-icon">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--My stylesheet-->
+    <link rel="stylesheet" href="portfolio.css">
+
+    <!-- Library script(s) -->
+    <script src="js/libraries/p5.min.js"></script>
+</head>
+<!-- -->
+
+<body>
+  <!--HEADER-->
+  <header id="site-header">
+      <div class="left">
+          <a href="index.html">GRAEME PETERS</a>
+      </div>
+      <nav class="right">
+          <a href="about.html">About</a>
+          <a href="projects.html" class="active-page">Projects</a>
+          <a href="contact.html">Contact</a>
+      </nav>
+  </header>
+
+  <!--HERO PIC-->
+  <section class="hero-section">
+    <img src="resources/photos/General/woodshop-weird.jpg" alt="Hero image of portfolio projects" />
+  </section>
+
+  <!--TITLE-->
+  <section class="page-title">
+    <h1>Projects</h1>
+  </section>
+
+  <!--CONTAINER FOR LAYOUT-->
+  <section class="page-layout">
+    <!--INDEX SECTION-->
+    <section class="section-index">
+      <ul>
+        <li data-target="2024-projects">2024</li>
+        <li data-target="2023-projects">2023</li>
+      </ul>
+    </section>
+
+    <!--YEARS-->
+    <section class="project-section">
+      <!--2024-->
+      <div id="2024-projects">
+        <h2>2024</h2>
+        <hr class="section-line" />
+
+        <div class="project-gallery">
+          <a href="../projects/sesameLamp.html">
+            <img src="resources/photos/Sesame-lamp/thumbnail.jpg" alt="Sesame Lamp" />
+          </a>
+          <a href="../projects/dayPak.html">
+            <img src="resources/photos/Daypak/thumbnail.jpg" alt="DayPak" />
+          </a>
+        </div>
+      </div>
+      <!--2023-->
+      <div id="2023-projects">
+        <h2>2023</h2>
+        <hr class="section-line" />
+
+          <div class="project-gallery">
+          <a href="../projects/milkweedJacket.html">
+            <img src="resources/photos/Milkweed-jacket/thumbnail.jpg" alt="Milkweed Jacket" />
+          </a>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <section class="spacing">
+    </section>
+<footer class="site-footer">
+  <div class="footer-content">
+    &copy; 2025 Graeme Peters. All rights reserved.
+    <nav class="footer-nav">
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="social-icons">
+        <a href="https://www.linkedin.com/in/graeme-peters-428250339/" target="_blank">LinkedIn</a>
+        <a href="https://www.instagram.com/graeme_rp/" target="_blank">Instagram</a>
+    </div>
+  </div>
+</footer>
+
+
+  <!--JAVASCRIPT-->
+  <script>
+    //HEADER SCROLL
+      let lastScroll = 0;
+      const header = document.getElementById('site-header');
+
+      window.addEventListener('scroll', () => {
+          const currentScroll = window.pageYOffset;
+          if (currentScroll > lastScroll) {
+          header.style.top = '-100px'; // hides header
+          } else {
+          header.style.top = '0'; // shows header
+          }
+          lastScroll = currentScroll;
+      });
+
+    //INDEX HIGHLIGHTING
+      const targets = document.querySelectorAll('.project-section > div');
+      const navItems = document.querySelectorAll('.section-index li');
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const currentId = entry.target.id;
+              navItems.forEach((item) => {
+                item.classList.remove('active');
+                if (item.dataset.target === currentId) {
+                  item.classList.add('active');
+                }
+              });
+            }
+          });
+        },
+        {
+          threshold: 0.8, // Adjust this to fine-tune when the section is considered "active"
+        }
+      );
+
+      targets.forEach((target) => observer.observe(target));
+
+  </script>
+</body>
+</html>
